@@ -19,7 +19,27 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = prompt();
-let computerSelection = getComputerChoice();
+function game() {
+    let player = 0;
+    let computer = 0;
 
-console.log(playRound(playerSelection, computerSelection));
+    for(let i = 0; i < 5; i++) {
+        let playerSelection = prompt();
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (result == 'You won') {
+            player += 1;
+        } else if (result == 'You lost') {
+            computer += 1;
+        }
+    }
+
+    if (player > computer) {
+        console.log('You won the game');
+    } else {
+        console.log('You lost the game');
+    }
+}
+
+game();
